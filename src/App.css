@@ -18,3 +18,41 @@ header h1 {
   letter-spacing: 2px;
   font-weight: normal;
 }
+.scoreboard {
+  background: #FFF;
+  width: 700px;
+  margin: 70px auto;
+  box-shadow: 0 2px 0 rgb(133, 104, 250);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.player {
+  display: flex;
+  font-size: 1.2em;
+  border-bottom: solid 2px #EEEEEE;
+  letter-spacing: 2px;
+}
+.player-name,
+.counter-score {
+  color: #2F2366;
+}
+.player-name {
+  flex-grow: 1;
+  line-height: 3.5em;
+  padding-left: 10px;
+}
+.stats {
+  margin: 0 0 0 28px;
+  font-weight: normal;
+}
+.counter {
+  display: flex;
+  width: 190px;
+}
+.counter-score {
+  flex-grow: 1;
+  text-align: center;
+  font-family: monospace;
+  font-size: 2em;
+  line-height: 2em;
+}

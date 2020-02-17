@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Header() {
+export default function Header({ title, totalPlayers }) {
   return (
     <header>
-      <h1>Scoreboard</h1>
-      <span className='stats'>Players: 1</span>
+      <h1>{ title }</h1>
+      <span className='stats'>Players: { totalPlayers }</span>
     </header>
   )
 }
