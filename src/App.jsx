@@ -46,7 +46,7 @@ export default class App extends Component {
       <div className="scoreboard">
         <Header
           title="Scoreboard"
-          totalPlayers={ initialPlayers.length }
+          players={ initialPlayers }
         />
         {initialPlayers.map((player, idx) =>
           <Player
