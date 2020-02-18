@@ -18,6 +18,21 @@ header h1 {
   letter-spacing: 2px;
   font-weight: normal;
 }
+button,
+input[type=submit] {
+  outline: none;
+  transition: background-color 0.2s ease,
+              color 0.2s ease;
+}
+svg {
+  width: 28px;
+  height: 19px;
+  margin-right: 5px;
+  fill: #F0F0F0;
+}
+@keyframes grow {
+  50% { transform: scale(1.4) rotate(-3deg); }
+}
 .scoreboard {
   background: #FFF;
   width: 700px;
@@ -41,6 +56,17 @@ header h1 {
   line-height: 3.5em;
   padding-left: 10px;
 }
+.remove-player {
+  font-size: 1.15em;
+  border: none;
+  outline: none;
+  
+  color: #EF5350;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  padding: 0;
+  background: none;
+}
 .stats {
   margin: 0 0 0 28px;
   font-weight: normal;
@@ -48,6 +74,26 @@ header h1 {
 .counter {
   display: flex;
   width: 190px;
+}
+.counter-action {
+  border: none;
+  font-size: 1.15em;
+  font-weight: bold;
+  color: #B0AEBA;
+  background-color: #DCDCDC;
+  display: block;
+  padding: 20px 20px;
+  cursor: pointer;
+  outline: none;
+}
+.counter-action:hover {
+  color: #fff;
+}
+.increment:hover {
+  background: #83D97C;
+}
+.decrement:hover {
+  background: #EF5350;
 }
 .counter-score {
   flex-grow: 1;
