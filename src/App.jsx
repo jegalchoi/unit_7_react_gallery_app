@@ -58,7 +58,6 @@ export default class App extends Component {
     return (
       <div className="scoreboard">
         <Header
-          title="Scoreboard"
           players={ initialPlayers }
         />
         {initialPlayers.map((player, idx) =>
