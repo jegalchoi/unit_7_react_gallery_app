@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Header from './Header'
 import Player from './Player'
+import AddPlayerForm from './AddPlayerForm'
 
 export default class App extends Component {
   state = {
@@ -26,7 +27,19 @@ export default class App extends Component {
         id: 4,
         score: 0
       }
-    ]
+    ],
+    prevPlayerId: 4
+  }
+  handleAddPlayer = name => {
+    this.setState(prevState => ({
+      players: [
+        ...prevState.players,
+        { name,
+          id: prevState.prevPlayerId + 1,
+          score: 0
+        }
+      ]
+    }))
   }
   handleRemovePlayer = id => {
     this.setState(prevState => ({
@@ -59,6 +72,7 @@ export default class App extends Component {
             ScoreChange={ this.handleScoreChange }
           />
         )}
+        <AddPlayerForm addPlayer={this.handleAddPlayer} />
       </div>
     )
   }
