@@ -5,7 +5,7 @@ export const AddPlayerForm = ({addPlayer}) => {
   let playerInput = React.createRef()
   let handleSubmit = e => {
     e.preventDefault()
-    this.props.addPlayer(playerInput.current.value)
+    addPlayer(playerInput.current.value)
     e.currentTarget.reset()
   }
   return (

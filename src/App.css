@@ -22,7 +22,7 @@ form {
   display: flex;
   background-color: #8063FA;
 }
-Input[type=text] {
+input[type=text] {
   flex-grow: 1;
   border-width: 0 0 1px 0;
   margin: 15px 10px 15px 15px;
@@ -65,6 +65,11 @@ svg {
   height: 19px;
   margin-right: 5px;
   fill: #F0F0F0;
+}
+.is-high-score {
+  fill: #FFC657;
+  animation: grow 0.35s ease-in-out;
+  transform-origin: 50% 50%;
 }
 @keyframes grow {
   50% { transform: scale(1.4) rotate(-3deg); }

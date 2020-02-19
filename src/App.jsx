@@ -53,8 +53,17 @@ export default class App extends Component {
       return newState.players
     })
   }
+  getHighScore = () => {
+    const scores = this.state.players.map(player => player.score)
+    const highScore = Math.max(...scores)
+    if (highScore) {
+      return highScore
+    }
+    return null
+  }
   render() {
     const initialPlayers = this.state.players
+    const highScore = this.getHighScore()
     return (
       <div className="scoreboard">
         <Header
@@ -69,6 +78,7 @@ export default class App extends Component {
             key={ player.id.toString() }
             removePlayer={ this.handleRemovePlayer }
             ScoreChange={ this.handleScoreChange }
+            isHighScore={ player.score === highScore }
           />
         )}
         <AddPlayerForm addPlayer={this.handleAddPlayer} />
