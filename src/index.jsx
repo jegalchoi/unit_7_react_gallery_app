@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import style from './App.css'
 
-import App from './App'
+import { Provider } from './components/Context'
+import { App } from './components/App'
+import style from './index.css'
 
 ReactDOM.render(
-  <App />,
+  <Provider>
+    <App />
+  </Provider>,
   document.getElementById('root')
 )

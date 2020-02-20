@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import Header from './Header'
-import Player from './Player'
-import { AddPlayerForm } from './AddPlayerForm'
+const ScoreboardContext = React.createContext()
 
-export default class App extends Component {
+export const Consumer = ScoreboardContext.Consumer
+
+export class Provider extends Component {
   state = {
     players: [
       {
@@ -34,7 +34,8 @@ export default class App extends Component {
     this.setState(prevState => ({
       players: [
         ...prevState.players,
-        { name,
+        {
+          name,
           id: prevState.prevPlayerId + 1,
           score: 0
         }
@@ -48,7 +49,7 @@ export default class App extends Component {
   }
   handleScoreChange = (idx, delta) => {
     this.setState(prevState => {
-      let newState = {players: { ...prevState.players}}
+      let newState = { players: { ...prevState.players } }
       newState.players[idx].score = prevState.players[idx].score + delta
       return newState.players
     })
@@ -62,27 +63,16 @@ export default class App extends Component {
     return null
   }
   render() {
-    const initialPlayers = this.state.players
-    const highScore = this.getHighScore()
     return (
-      <div className="scoreboard">
-        <Header
-          players={ initialPlayers }
-        />
-        {initialPlayers.map((player, idx) =>
-          <Player
-            name={ player.name }
-            score={ player.score }
-            id={ player.id }
-            idx={ idx }
-            key={ player.id.toString() }
-            removePlayer={ this.handleRemovePlayer }
-            ScoreChange={ this.handleScoreChange }
-            isHighScore={ player.score === highScore }
-          />
-        )}
-        <AddPlayerForm addPlayer={this.handleAddPlayer} />
-      </div>
+      <ScoreboardContext.Provider value={{
+        players: this.state.players,
+        removePlayer: this.handleRemovePlayer,
+        scoreChange: this.handleScoreChange,
+        highScore: this.getHighScore,
+        addPlayer: this.handleAddPlayer
+      }}>
+        {this.props.children}
+      </ScoreboardContext.Provider>
     )
   }
 }
